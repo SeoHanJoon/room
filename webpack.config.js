@@ -1,37 +1,37 @@
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
 module.exports = {
   // mode: "development",
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "bundle.[hash].js",
-    publicPath: "/"
+    filename: 'bundle.[hash].js',
+    publicPath: '/',
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
-      }
-    ]
+        use: ['babel-loader'],
+      },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: "public/index.html",
-      favicon: "public/favicon.ico"
-    })
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico',
+    }),
   ],
   devServer: {
-    host: "localhost",
-    port: port,
+    host: 'localhost',
+    port,
     historyApiFallback: true,
     open: true,
-    hot: true
-  }
+    hot: true,
+  },
 };

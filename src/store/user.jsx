@@ -1,4 +1,4 @@
-export const FETCH_USER = "user/FETCH_USER";
+export const FETCH_USER = 'user/FETCH_USER';
 // ...
 
 // 액션 생성자
@@ -9,7 +9,7 @@ export const fetchUser = () => ({ type: FETCH_USER });
 const initialSatate = {
   users: [],
   isEditing: false,
-  editingUser: {}
+  editingUser: {},
 };
 
 // 리듀서
