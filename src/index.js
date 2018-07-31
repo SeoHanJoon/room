@@ -4,9 +4,10 @@ import { createStore } from 'redux'; // add
 import { Provider } from 'react-redux'; // add
 import Routes from './routes';
 import registerServiceWorker from './registerServiceWorker';
-import dashboardApp from './store'; // add
+import storeModule from './store'; // add
 
-const store = createStore(dashboardApp); // add
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(storeModule, devTools); // add
 
 ReactDOM.render(
   <Provider store={store}>

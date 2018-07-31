@@ -1,9 +1,8 @@
 import React from 'react';
-import Mains from '../../components/index';
 
 const Main = () => (
   <div id="wrapper">
-    <Mains />
+    {'Main page'}
   </div>
 );
 
