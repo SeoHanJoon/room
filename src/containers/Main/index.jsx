@@ -1,10 +1,12 @@
-import React from 'react';
-import Mains from '../../components/index';
+import React, { Fragment } from 'react';
+import { Headers, Mains, Boards } from '../../components';
 
 const Main = () => (
-  <div id="wrapper">
+  <Fragment>
+    <Headers />
     <Mains />
-  </div>
+    <Boards />
+  </Fragment>
 );
 
 export default Main;
