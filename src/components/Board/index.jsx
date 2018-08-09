@@ -7,12 +7,21 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1200px;
   height: 100%;
-  margin: 0 auto;
+  margin: 40px auto;
+  font-size: 0;
 `;
 
 const Board = () => (
   <Wrapper>
-    {'Header page'}
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
+    <Item />
     <Item />
   </Wrapper>
 );
