@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes, { object } from 'prop-types';
 import Item from './item';
 
 const Wrapper = styled.div`
@@ -11,19 +12,26 @@ const Wrapper = styled.div`
   font-size: 0;
 `;
 
-const Board = () => (
-  <Wrapper>
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-    <Item />
-  </Wrapper>
-);
+const Board = ({ mainBoard, onToggle }) => {
+  const itemList = mainBoard.map(w => (
+    <Item
+      key={w.id}
+      title={w.title}
+      content={w.content}
+      bools={w.bools}
+      onToggle={() => onToggle(w.id)}
+    />
+  ));
+  return (
+    <Wrapper>
+      {itemList}
+    </Wrapper>
+  );
+};
+
+Board.propTypes = {
+  mainBoard: PropTypes.arrayOf(object).isRequired,
+  onToggle: PropTypes.func.isRequired,
+};
 
 export default Board;

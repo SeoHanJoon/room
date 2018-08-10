@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ItemWrapper = styled.div`
   display: inline-block;
@@ -14,7 +15,7 @@ const ItemTitle = styled.div`
   height: 96px;
   padding: 8px;
   border: solid 1px #e6e6e6;
-  border-top: solid 3px #5af;
+  border-top: solid 3px ${props => (props.bools ? '#f00' : '#5af')};
 `;
 
 const ItemContent = styled.div`
@@ -24,17 +25,33 @@ const ItemContent = styled.div`
   border-top: none;
 `;
 
-const Item = () => (
-  <Fragment>
-    <ItemWrapper>
-      <ItemTitle>
-        {'Title'}
-      </ItemTitle>
-      <ItemContent>
-        {'123'}
-      </ItemContent>
-    </ItemWrapper>
-  </Fragment>
+const Item = ({
+  title, content, bools, onToggle,
+}) => (
+  <ItemWrapper onClick={onToggle}>
+    <ItemTitle bools={bools}>
+      {title}
+    </ItemTitle>
+    <ItemContent>
+      {content}
+    </ItemContent>
+  </ItemWrapper>
 );
+
+Item.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  bools: PropTypes.bool,
+  onToggle: PropTypes.func.isRequired,
+};
+Item.defaultProps = {
+  bools: false,
+};
+ItemTitle.propTypes = {
+  bools: PropTypes.bool,
+};
+ItemTitle.defaultProps = {
+  bools: false,
+};
 
 export default Item;
